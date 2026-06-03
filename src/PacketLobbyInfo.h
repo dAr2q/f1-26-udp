@@ -34,7 +34,7 @@ public:
 
 private:
     uint8_t m_numofCars_; // Number of cars in the final classification
-    LobbyInfoData m_lobbyPlayers_[22];
+    LobbyInfoData m_lobbyPlayers_[24];
 };
 #pragma pack(pop)
 

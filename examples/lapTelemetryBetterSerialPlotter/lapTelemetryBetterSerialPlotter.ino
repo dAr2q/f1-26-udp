@@ -6,7 +6,7 @@ Get it here: https://github.com/nathandunk/BetterSerialPlotter */
 //#include "Wifi.h" // ESP32 WiFi include
 #include <ESP8266WiFi.h> // ESP8266 WiFi include
 #include <WiFiUdp.h>
-#include <F1_25_UDP.h>
+#include <F1_26_UDP.h>
 
 const char *SSID = "Your WiFi SSID";
 const char *Password = "Enter your WiFi Password";
@@ -14,11 +14,11 @@ const int localPort = 20777;
 
 void startWiFi();
 
-F1_25_Parser* parser;
+F1_26_Parser* parser;
 
 void setup() 
 { 
-  parser = new F1_25_Parser();
+  parser = new F1_26_Parser();
   Serial.begin(115200);
   startWiFi();
   parser->begin(localPort);

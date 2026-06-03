@@ -8,8 +8,8 @@
 
 struct PacketHeader
 {
-    uint16_t m_packetFormat; // 2025
-    uint8_t m_gameYear; // 25
+    uint16_t m_packetFormat; // 2026
+    uint8_t m_gameYear; // 2026
     uint8_t m_gameMajorVersion; // Game major version - "X.00"
     uint8_t m_gameMinorVersion; // Game minor version - "1.XX"
     uint8_t m_packetVersion; // Version of this packet type, all start from 1
@@ -30,8 +30,8 @@ class PHeader
 public:
     PHeader();
     virtual ~PHeader();
-    uint16_t m_packetFormat(void); // 2025
-    uint8_t m_gameYear(void); // Game year - last two digits e.g. 25
+    uint16_t m_packetFormat(void); // 2026
+    uint8_t m_gameYear(void); // Game year - last two digits e.g. 26
     uint8_t m_gameMajorVersion(void); // Game major version - "X.00"
     uint8_t m_gameMinorVersion(void); // Game minor version - "1.XX"
     uint8_t m_packetVersion(void); // Version of this packet type, all start from 1
@@ -52,4 +52,3 @@ protected:
 #pragma pack(pop)
 
 #endif
-

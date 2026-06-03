@@ -42,9 +42,8 @@ public:
 
 private:
     uint8_t m_numCars_; // Number of cars in the final classification
-    FinalClassificationData m_classificationData_[22];
+    FinalClassificationData m_classificationData_[24];
 };
 #pragma pack(pop)
 
 #endif 
-

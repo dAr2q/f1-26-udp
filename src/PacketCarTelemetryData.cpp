@@ -3,7 +3,7 @@
 #include <inttypes.h>
 #include <cstring>
 
-const int CARTELEMETRY_BUFFER_SIZE = 1352;
+const int CARTELEMETRY_BUFFER_SIZE = 1448;
 
 PacketCarTelemetryData::PacketCarTelemetryData()
 : PHeader()

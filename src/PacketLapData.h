@@ -60,11 +60,10 @@ public:
 
 
 private:
-    LapData m_lapData_[22]; // Lap data for all cars on track
+    LapData m_lapData_[24]; // Lap data for all cars on track
     uint8_t m_timeTrialPBCarIdx_; // Index of Personal Best car in time trial (255 if invalid)
     uint8_t m_timeTrialRivalCarIdx_; // Index of Rival car in time trial (255 if invalid)
 };
 #pragma pack(pop)
 
 #endif
-

@@ -3,7 +3,7 @@
 #include <inttypes.h>
 #include <cstring>
 
-const int LAPDATA_BUFFER_SIZE = 1285;
+const int LAPDATA_BUFFER_SIZE = 1399;
 
 PacketLapData::PacketLapData()
 : PHeader()

@@ -1,14 +1,16 @@
-# F1 25 UDP | Library for use on ESP 32 / ESP8266 devices
-**Data Output from F1® 25 Game**
+# F1 25 (in 2026 Mode) UDP | Library for use on ESP 32 / ESP8266 devices
+**Data Output from F1® 25 (in 2026 Mode) Game**
 
-> Note from developer: I do not have F1 25 and therefore am unable to test the library, it is based on [f1-23-udp](https://github.com/MacManley/f1-23-udp) with the updated UDP documentation. Please create an issue if it does not work and I will fix it ASAP.
+This program captures and parses packets that are sent by the F1 25 (in 2026 Mode) game. This library is written specifically for usage on the ESP32 and ESP8266.
 
-This program captures and parses packets that are sent by the F1 25 game. This library is written specifically for usage on the ESP32 and ESP8266.
+
+#README is WIP
+
 
 # Usage:
 ```C
-#include "F1_25_UDP.h"
-F1_25_Parser* parser;
+#include "F1_26_UDP.h"
+F1_26_Parser* parser;
 
 void setup()
 {
@@ -17,7 +19,7 @@ void setup()
 
 void loop()
 {
-    parser = new F1_25_Parser();
+    parser = new F1_26_Parser();
     parser->read()
 }
 
@@ -59,8 +61,8 @@ Size: 29 bytes
 ```c#
 struct PacketHeader
 {
-uint16 m_packetFormat; // 2025
-uint8 m_gameYear; // Game year - last two digits e.g. 25
+uint16 m_packetFormat; // 2026
+uint8 m_gameYear; // Game year - last two digits e.g. 26
 uint8 m_gameMajorVersion; // Game major version - "X.00"
 uint8 m_gameMinorVersion; // Game minor version - "1.XX"
 uint8 m_packetVersion; // Version of this packet type, all start from 1

@@ -3,7 +3,7 @@
 //#include "Wifi.h" // ESP32 WiFi include
 #include <ESP8266WiFi.h> // ESP8266 WiFi include
 #include <WiFiUdp.h>
-#include <F1_25_UDP.h>
+#include <F1_26_UDP.h>
 
 const char *SSID = "Your SSID";
 const char *Password = "Your WiFi Password";
@@ -14,11 +14,11 @@ void startWiFi();
 //The IP address that this ESP32 / ESP8266 has requested to be assigned to.
 IPAddress ip();
 
-F1_25_Parser* parser;
+F1_26_Parser* parser;
 
 void setup() 
 { 
-  parser = new F1_25_Parser();
+  parser = new F1_26_Parser();
   Serial.begin(115200);
   startWiFi();
   parser->begin(localPort);

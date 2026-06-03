@@ -2,7 +2,7 @@
 #include "PacketMotionData.h"
 #include <cstring>
 
-const int MOTION_BUFFER_SIZE = 1349;
+const int MOTION_BUFFER_SIZE = 1325;
 
 PacketMotionData::PacketMotionData()
 : PHeader()

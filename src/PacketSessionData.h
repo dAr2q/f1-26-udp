@@ -13,6 +13,18 @@ struct MarshalZone
     int8_t m_zoneFlag; // -1 = invalid/unknown, 0 = none, 1 = green, 2 = blue, 3 = yellow, 4 = red
 };
 
+struct ActiveAeroZone
+{
+    float       m_zoneStart;        // Fraction (0..1) of way through the lap the Active Aero zone starts
+    float       m_zoneEnd;          // Fraction (0..1) of way through the lap the Active Aero zone ends
+};
+
+struct DRSZone
+{
+    float       m_zoneStart;        // Fraction (0..1) of way through the lap the DRS zone starts
+    float       m_zoneEnd;          // Fraction (0..1) of way through the lap the DRS zone ends
+};
+
 struct WeatherForecastSample
 {
     uint8_t m_sessionType; // 0 = unknown, 1 = P1, 2 = P2, 3 = P3, 4 = Short P, 5 = Q1
@@ -208,4 +220,3 @@ private:
 #pragma pack(pop)
 
 #endif 
-
