@@ -1,10 +1,9 @@
+# This Fork is WIP and does not fully work for now
+
 # F1 25 (in 2026 Mode) UDP | Library for use on ESP 32 / ESP8266 devices
 **Data Output from F1® 25 (in 2026 Mode) Game**
 
 This program captures and parses packets that are sent by the F1 25 (in 2026 Mode) game. This library is written specifically for usage on the ESP32 and ESP8266.
-
-
-#README is WIP
 
 
 # Usage:
