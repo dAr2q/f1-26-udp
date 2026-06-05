@@ -1152,20 +1152,20 @@ Here you can set the values manually. Note that any changes made within the game
 
 ## **What has changed since last year?**
 F1® 25 2026 SEASON DLC sees the following changes to the UDP specification:
-• [IMPORTANT] Increasing the maximum number of vehicles to 24 to accommodate the new
+- [IMPORTANT] Increasing the maximum number of vehicles to 24 to accommodate the new
 team for the 2026 season, so most packet sizes have changed
-• Engine temperature has been changed to a uint8 as it didn’t need to be a uint16
-• G-force values have been quantised to reduce space in the motion packet as the number of
+- Engine temperature has been changed to a uint8 as it didn’t need to be a uint16
+- G-force values have been quantised to reduce space in the motion packet as the number of
 cars are increasing
-• Added new tracks, teams, drivers and cars for 2026 season
-• Increased the size of Driver, Network and Team Ids to allow for a larger database
-• Added new Car Telemetry 2 packet for additional data regarding 2026 regulations and driving
+- Added new tracks, teams, drivers and cars for 2026 season
+- Increased the size of Driver, Network and Team Ids to allow for a larger database
+- Added new Car Telemetry 2 packet for additional data regarding 2026 regulations and driving
 the wrong way
-• Added activation zones and active aero status to session packet
-• Added ERS harvest limit per lap to car status packet
-• Added driver reaction time for race starts
-• Added collision severity to event
-• Added anti-lock brakes, traction control, hi-vis and colourblind assists & rewind prompt
+- Added activation zones and active aero status to session packet
+- Added ERS harvest limit per lap to car status packet
+- Added driver reaction time for race starts
+- Added collision severity to event
+- Added anti-lock brakes, traction control, hi-vis and colourblind assists & rewind prompt
 options
 
 
