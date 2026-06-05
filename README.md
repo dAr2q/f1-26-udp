@@ -1037,7 +1037,11 @@ struct PacketLapPositionsData
 
 ## **Car Telemetry 2**
 
-Telemetry data for one Car
+This packet details additional telemetry for all the cars in the race, as the initial car telemetry was
+getting too large.
+
+Frequency: Rate as specified in menus
+
 
 Size: 269 bytes
 
@@ -1124,7 +1128,7 @@ Please note that all options can be changed during a game session and will take 
 #**FAQS**
 
 ## **How do I enable the UDP Telemetry Output?**
-In F1 23, UDP telemetry output is controlled via the in-game menus. To enable this, enter the options menu from the main menu (triangle / Y), then enter the settings menu - the UDP option will be at the bottom of the list. From there you will be able to enable / disable the UDP output, configure the IP address and port for the receiving application, toggle broadcast mode and set the send rate. Broadcast mode transmits the data across the network subnet to allow multiple devices on the same subnet to be able to receive this information. When using broadcast mode it is not necessary to set a target IP address, just a target port for applications to listen on.
+In F1 25/26, UDP telemetry output is controlled via the in-game menus. To enable this, enter the options menu from the main menu (triangle / Y), then enter the settings menu - the UDP option will be at the bottom of the list. From there you will be able to enable / disable the UDP output, configure the IP address and port for the receiving application, toggle broadcast mode and set the send rate. Broadcast mode transmits the data across the network subnet to allow multiple devices on the same subnet to be able to receive this information. When using broadcast mode it is not necessary to set a target IP address, just a target port for applications to listen on.
 
 *Advanced PC Users*: You can additionally edit the game’s configuration XML file to configure UDP output. The file is located here (after an initial boot of the game):
 
@@ -1136,7 +1140,7 @@ You should see the tag:
 
 ...
 
-  <udp enabled="false" broadcast=”false” ip="127.0.0.1" port="20777" sendRate=”20” format=”2025” yourTelemetry=”restricted” onlineNames="off" />
+  <udp enabled="false" broadcast=”false” ip="127.0.0.1" port="20777" sendRate=”20” format=”2026” yourTelemetry=”restricted” onlineNames="off" />
 
 ...
 
@@ -1147,20 +1151,22 @@ Here you can set the values manually. Note that any changes made within the game
 
 
 ## **What has changed since last year?**
-F1® 25 sees the following changes to the UDP specification:
-
-- Added stop-go penalty time to the event packet
-- Tyre blister percentage has been added to the car damage packet
-- Chassis pitch has been added to the Motion Ex packet
-- Added car colours to the participants packet (and reduced name size to 32 chars, 48 chars
-seemed excessive)
-- Reduced name size in lobby packet as per above
-- Add wheel camber and wheel camber gain to Motion Ex packet
-- Added more detailed reason for DRS being disabled
-- Added retirement reason to the Retirement event
-- Added a new Lap Positions packet
-- Added result reason to the Final Classifications packet
-- Added C6 compound tyre to documentation
+F1® 25 2026 SEASON DLC sees the following changes to the UDP specification:
+• [IMPORTANT] Increasing the maximum number of vehicles to 24 to accommodate the new
+team for the 2026 season, so most packet sizes have changed
+• Engine temperature has been changed to a uint8 as it didn’t need to be a uint16
+• G-force values have been quantised to reduce space in the motion packet as the number of
+cars are increasing
+• Added new tracks, teams, drivers and cars for 2026 season
+• Increased the size of Driver, Network and Team Ids to allow for a larger database
+• Added new Car Telemetry 2 packet for additional data regarding 2026 regulations and driving
+the wrong way
+• Added activation zones and active aero status to session packet
+• Added ERS harvest limit per lap to car status packet
+• Added driver reaction time for race starts
+• Added collision severity to event
+• Added anti-lock brakes, traction control, hi-vis and colourblind assists & rewind prompt
+options
 
 
 ## **What is the order of the wheel arrays?**
@@ -1194,7 +1200,7 @@ Yes, all data is packed, there is no padding used.
 
 
 ## **How many cars are in the data structures?**
-The maximum number of cars in the data structures is 22, to allow for certain game modes, although the data is not always filled in.
+The maximum number of cars in the data structures is 24, to allow for certain game modes, although the data is not always filled in.
 
 You should always check the data item called m_numActiveCars in the participants packet which tells you how many cars are active in the race. However, you should check the individual result status of each car in the lap data to see if that car is actively providing data. If it is not “Invalid” or “Inactive” then the corresponding vehicle index has valid data.
 
@@ -1249,18 +1255,20 @@ Packets sent on Frame 31: (All packets sent on this frame have “Session timest
 - Car Damage (since 2 updates per second)
 - Motion Ex Data
 
-## **Will my old app still work with F1 24?**
-**Please note that from F1 25 the game will only support the previous 2 UDP formats.**
+## **Will my old app still work with F1 25/26?**
+**Please note that from F1 25/26 the game will only support the previous 2 UDP formats.**
 
-F1 25 uses a new format for the UDP data. However, some earlier formats of the data are still supported so that most older apps implemented using the previous data formats should work with little or no change from the developer. To use the old formats, please enter the UDP options menu and set “UDP Format” to either “2024” or “2023”. 
-
+F1 26 uses a new format for the UDP data. However, some earlier formats of the data are still
+supported so that most older apps implemented using the previous data formats should work with
+little or no change from the developer. To use the old formats, please enter the UDP options menu
+and set “UDP Format” to either “2025” or “2024”.
 Specifications for the older formats can be seen here:
-
-- F1 24 - `hhttps://answers.ea.com/t5/General-Discussion/F1-24-UDP-Specification/td-p/13745220`
-- F1 23 - `https://answers.ea.com/t5/General-Discussion/F1-23-UDP-telemetry-documentation/m-p/12632769`
+• F1 24 - https://answers.ea.com/t5/General-Discussion/F1-24-UDP-Specification/td-p/13745220
+• F1 25 - https://forums.ea.com/blog/f1-games-game-info-hub-en/ea-sports%E2%84%A2-f1%C2%AE25-
+udp-specification/12187347
 
 ## **How do I enable D-BOX output?**
-D-BOX output is currently supported on the PC platform. In F1 23, the D-BOX activation can be controlled via the menus. Navigate to Game Options->Settings->UDP Telemetry Settings->D-BOX to activate this on your system.
+D-BOX output is currently supported on the PC platform. In F1 25/26, the D-BOX activation can be controlled via the menus. Navigate to Game Options->Settings->UDP Telemetry Settings->D-BOX to activate this on your system.
 
 *Advanced PC Users:* It is possible to control D-BOX by editing the games’ configuration XML file. The file is located here (after an initial boot of the game):
 
@@ -1311,7 +1319,7 @@ You should see the tag:
 
 ...
 
-     <udp enabled="false" broadcast=”false” ip="127.0.0.1" port="20777" sendRate=”20” format=”205” yourTelemetry="restricted" onlineNames="off" />
+     <udp enabled="false" broadcast=”false” ip="127.0.0.1" port="20777" sendRate=”20” format=”2026” yourTelemetry="restricted" onlineNames="off" />
 
 ...
 
@@ -1327,30 +1335,30 @@ Here are the values used for some of the parameters in the UDP data output.
 ## **Team IDs**
 
 
-| ID  | Team                         |
-|-----|------------------------------|
-| 0   | Mercedes                     |
-| 1   | Ferrari                      |
-| 2   | Red Bull Racing              |
-| 3   | Williams                     |
-| 4   | Aston Martin                 |
-| 5   | Alpine                       |
-| 6   | RB                           |
-| 7   | Haas                         |
-| 8   | McLaren                      |
-| 9   | Sauber                       |
-| 41  | F1 Generic                   |
-| 104 | F1 Custom Team               |
-| 129 | Konnersport                  |
-| 142 | APXGP ‘24                    |
-| 154 | APXGP ‘25                    |
-| 155 | Konnersport ‘24             |
-| 158 | Art GP ‘24                   |
-| 159 | Campos ‘24                   |
-| 160 | Rodin Motorsport ‘24         |
-| 161 | AIX Racing ‘24               |
-| 162 | DAMS ‘24                     |
-| 163 | Hitech ‘24                   |
+| ID  | Team                         | ID  | Team                         |
+|-----|------------------------------|-----|------------------------------|
+| 0   | Mercedes                     | 465 | Art GP '25					  |
+| 1   | Ferrari                      | 466 | Campos '25					  |
+| 2   | Red Bull Racing              | 467 | Rodin Motorsport '25		  |
+| 3   | Williams                     | 468 | AIX Racing '25				  |
+| 4   | Aston Martin                 | 469 | DAMS '25					  |
+| 5   | Alpine                       | 470 | Hitech '25					  |
+| 6   | RB                           | 471 | MP Motorsport '25			  |
+| 7   | Haas                         | 472 | Prema '25					  |
+| 8   | McLaren                      | 473 | Trident '25				  |
+| 9   | Sauber                       | 474 | Van Amersfoort Racing '25	  |
+| 41  | F1 Generic                   | 475 | Invicta '25				  |
+| 104 | F1 Custom Team               | 476 | Mercedes '26				  |
+| 129 | Konnersport                  | 477 | Ferrari '26				  |
+| 142 | APXGP ‘24                    | 478 | Red Bull Racing '26		  |
+| 154 | APXGP ‘25                    | 479 | Williams '26				  |
+| 155 | Konnersport ‘24              | 480 | Aston Martin '26			  |
+| 158 | Art GP ‘24                   | 481 | Alpine '26					  |
+| 159 | Campos ‘24                   | 482 | RB '26						  |
+| 160 | Rodin Motorsport ‘24         | 483 | Haas '26					  |
+| 161 | AIX Racing ‘24               | 484 | McLaren '26				  |
+| 162 | DAMS ‘24                     | 485 | Audi '26					  |
+| 163 | Hitech ‘24                   | 486 | Cadillac '26				  |
 | 164 | MP Motorsport ‘24            |
 | 165 | Prema ‘24                    |
 | 166 | Trident ‘24                  |
@@ -1402,8 +1410,10 @@ Here are the values used for some of the parameters in the UDP data output.
 | 168 | Zak O’Sullivan         | 169 | Pepe Marti              | 170 | Sonny Hayes           |
 | 171 | Joshua Pearce         | 172 | Callum Voisin           | 173 | Matias Zagazeta       |
 | 174 | Nikola Tsolov          | 175 | Tim Tramnitz            | 185 | Luca Cortez           |
-
-
+| 186 | Luke Browning         | 187 | Cian Shields             | 188 | Arvid Lindblad          |
+| 189 | Dino Beganovic         | 190 | Leonardo Fornaroli          | 191 | Oliver Goethe      |
+| 192 | Gabriele Mini         | 193 | Sebastiàn Montoya            | 194 | Alexander Dunne           |
+| 195 | Max Esterson            | 196 | Sami Meguetounif           | 197 | John Bennett			|
 
 
 ## **Track IDs**
@@ -1438,6 +1448,7 @@ Here are the values used for some of the parameters in the UDP data output.
 |39|Silverstone (Reverse)|
 |40|Austria (Reverse)|
 |41|Zandvoort (Reverse)|
+|42|Madrid|
 
 
 
@@ -1687,7 +1698,7 @@ These flags are used in the telemetry packet to determine if any buttons are bei
 F1® 25 Game - an official product of the FIA Formula One World Championship™.
 
 The F1 Formula 1 logo, F1 logo, Formula 1, F1, FIA FORMULA ONE WORLD CHAMPIONSHIP, GRAND
-PRIX and related marks are trademarks of Formula One Licensing BV, a Formula 1 company. © 2025
+PRIX and related marks are trademarks of Formula One Licensing BV, a Formula 1 company. © 2026
 Cover images Formula One World Championship Limited, a Formula 1 company. Licensed by Formula
 One World Championship Limited. The F2 FIA Formula 2 CHAMPIONSHIP logo, FIA Formula 2
 CHAMPIONSHIP, FIA Formula 2, Formula 2, F2 and related marks are trademarks of the Federation
