@@ -44,7 +44,7 @@ public:
     void push(char *receiveBuffer);
 
 private:
-    CarTelemetryData m_carTelemetryData_[24];
+    CarTelemetryData m_carTelemetryData_[cs_maxNumCarsInUDPData];
     uint8_t m_mfdPanelIndex_; // Index of MFD panel open - 255 = MFD closed
     // Single player, race – 0 = Car setup, 1 = Pits
     // 2 = Damage, 3 =  Engine, 4 = Temperatures

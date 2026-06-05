@@ -20,7 +20,7 @@ void PacketCarTelemetryData::push(char *receiveBuffer)
 
 CarTelemetryData PacketCarTelemetryData::m_carTelemetryData(int index)
 {
-    if (index >= 0 && index < 22)
+    if (index >= 0 && index < 24)
         return m_carTelemetryData_[index];
     else return CarTelemetryData{};
 }

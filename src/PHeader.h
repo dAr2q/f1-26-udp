@@ -6,6 +6,11 @@
 
 #pragma pack(push, 1)
 
+static const uint32_t     cs_maxNumCarsInUDPData = 24;
+static const uint32_t     cs_maxParticipantNameLen = 32;
+static const uint32_t     cs_maxTyreStints = 8;
+static const uint32_t     cs_maxNumTyreSets = 13 + 7; // 13 slick and 7 wet weather
+
 struct PacketHeader
 {
     uint16_t m_packetFormat; // 2026

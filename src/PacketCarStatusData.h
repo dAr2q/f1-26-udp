@@ -58,7 +58,7 @@ public:
 
 
 private:
-    CarStatusData m_carStatusData_[24];
+    CarStatusData m_carStatusData_[cs_maxNumCarsInUDPData];
 };
 #pragma pack(pop)
 

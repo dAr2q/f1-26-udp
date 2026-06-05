@@ -37,7 +37,7 @@ public:
     void push(char *receiveBuffer);
 
 private:
-    CarMotionData m_carMotionData_[24]; //24 elements
+    CarMotionData m_carMotionData_[cs_maxNumCarsInUDPData]; // Data for all cars on track
 };
 #pragma pack(pop)
 
