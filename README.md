@@ -1263,9 +1263,8 @@ supported so that most older apps implemented using the previous data formats sh
 little or no change from the developer. To use the old formats, please enter the UDP options menu
 and set “UDP Format” to either “2025” or “2024”.
 Specifications for the older formats can be seen here:
-• F1 24 - https://answers.ea.com/t5/General-Discussion/F1-24-UDP-Specification/td-p/13745220
-• F1 25 - https://forums.ea.com/blog/f1-games-game-info-hub-en/ea-sports%E2%84%A2-f1%C2%AE25-
-udp-specification/12187347
+- F1 24 - https://answers.ea.com/t5/General-Discussion/F1-24-UDP-Specification/td-p/13745220
+- F1 25 - https://forums.ea.com/blog/f1-games-game-info-hub-en/ea-sports%E2%84%A2-f1%C2%AE25-udp-specification/12187347
 
 ## **How do I enable D-BOX output?**
 D-BOX output is currently supported on the PC platform. In F1 25/26, the D-BOX activation can be controlled via the menus. Navigate to Game Options->Settings->UDP Telemetry Settings->D-BOX to activate this on your system.
