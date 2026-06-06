@@ -10,9 +10,6 @@ const char *Password = "Your WiFi Password";
 const int localPort = 20777;
 
 void startWiFi();
- 
-//The IP address that this ESP32 / ESP8266 has requested to be assigned to.
-IPAddress ip();
 
 F1_26_Parser* parser;
 
@@ -29,6 +26,7 @@ void loop()
     parser->read();
     unsigned int playerCar = parser->packetCarTelemetryData()->m_playerCarIndex(); //Get the index of the players car in the array.
     unsigned int speed = parser->packetCarTelemetryData()->m_carTelemetryData(playerCar).m_speed; //Speed of the car, inputting "playerCar" for the speed of the players car.
+    Serial.print("Car Speed: ");
     Serial.println(speed);
   }
 void startWiFi()
