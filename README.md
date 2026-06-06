@@ -1,5 +1,3 @@
-# This Fork is WIP and does not fully work for now
-
 # F1 25 (in 2026 Mode) UDP | Library for use on ESP 32 / ESP8266 devices
 **Data Output from F1® 25 (in 2026 Mode) Game**
 
